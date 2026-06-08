@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #060d1f;
+  color: #f1f5f9;
+  font-family: var(--font-body);
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Sari-sari store warm glow effect */
+.store-glow {
+  background: radial-gradient(ellipse at top, rgba(245, 158, 11, 0.08) 0%, transparent 60%);
+}
+
+/* Gold shimmer text */
+.gold-text {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #fcd34d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Payment confirmed flash */
+@keyframes confirm-flash {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.confirm-animate {
+  animation: confirm-flash 0.5s ease-out forwards;
+}
+
+/* Pulse for waiting state */
+@keyframes payment-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.payment-pulse {
+  animation: payment-pulse 1.5s ease-in-out infinite;
+}
+
+/* Slide up entrance */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+/* Card style */
+.card {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+}
+
+/* Gold button */
+.btn-gold {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #1a0a00;
+  font-family: var(--font-display);
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 16px 24px;
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  transform: translateY(-1px);
+}
+
+.btn-gold:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Ghost button */
+.btn-ghost {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
+}
+
+/* Input style */
+.input-field {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: #f1f5f9;
+  font-family: var(--font-body);
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: rgba(245, 158, 11, 0.6);
+}
+
+.input-field::placeholder {
+  color: #475569;
+}
+
+/* Sale item row */
+.sale-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.08);
+}
+
+.sale-row:last-child {
+  border-bottom: none;
+}
+
+/* Status badge */
+.badge-confirmed {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
